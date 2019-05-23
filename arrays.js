@@ -70,3 +70,79 @@ function myUnshift(arr, val) {
   newArray.reverse();
   return newArray;
 }
+
+
+// Even and Odd
+/* 
+Define a function, evenAndOdd, that accepts an array.
+evenAndOdd should return a new array. The first element in the new array should be an array with all of the even numbers from the original array. The second element in the new array should be an array with all of the odd numbers from the original array.
+evenAndOdd([1, 2, 3, 4, 5, 6]); // => [[ 2 ,4, 6 ], [ 1, 3, 5 ]]
+*/
+
+function evenAndOdd(arr) {
+  let evenArray = [];
+  let oddArray = [];
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      evenArray.push(arr[i]);
+    } else if (arr[i] % 2 === 1) {
+      oddArray.push(arr[i]);
+    }
+  }
+  newArray = [evenArray, oddArray];
+  return newArray;
+}
+
+//be careful with using 'i'!
+//i is NOT equal to arr[i]
+
+
+
+// Array Flattener
+/*
+Define a function, arrayFlattener, that accepts a two-dimensional array as an argument.
+arrayFlattener should return a new, one-dimensional array.
+arrayFlattener([1,[2, 3], 4]); // => [1, 2, 3, 4]
+*/
+
+const arrayFlattener = arr => {
+  let flatArray = [];
+  let tempArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i]) === false) {
+      tempArray.push(arr[i]);
+    } else if (Array.isArray(arr[i]) === true) {
+      flatArray = tempArray.concat(arr[i]);
+    }
+  }
+  return flatArray;
+}
+
+
+
+// Make Grid
+/* 
+Write a function makeGrid that accepts two arguments:
+numColumns (number)
+numRows (number)
+makeGrid should return a two-dimensional array that represents a grid of the given dimensions.
+makeGrid(3,4);
+ => [[1, 2, 3],
+     [1, 2, 3],
+     [1, 2, 3],
+     [1, 2, 3]]
+*/
+
+const makeGrid = (numColumns, numRows) => {
+  let newArray = [];
+  let row = [];
+  for (let i = 1; i <= numColumns; i++) {
+    row.push(i);
+  }
+  while (newArray.length < numRows) {
+    newArray.push(row);
+  }
+  return newArray;
+}
+
